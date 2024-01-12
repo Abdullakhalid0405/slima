@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.searchbutton{
+    background-color: #fde9e9;
+    height: 37px;
+    margin: 2px 0px 0px 9px;
+    padding: 2px 45px;
+    border: 1px solid #383740;
+    border-radius: 100vw;
+    cursor: pointer;
+    isolation: isolate;
+    position: relative;
+    transition: background-color 250ms;
+    overflow: hidden;
+}
+
+.searchbutton:hover,
+.searchbutton:focus-visible{
+    background-color: #fde9e9;
+}
+
+.searchbutton > span {
+    position: absolute;
+    background: transparent;
+    z-index : -1;
+    width: 33.33%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.searchbutton > :first-child {
+    left: 0;
+    top: 0;
+}
+.searchbutton > :last-child {
+    right: 0;
+    top: 0;
+}
+
+.searchbutton::before{
+    content: '';
+    z-index: -1;
+    position: absolute;
+    background: red;
+    width: 10%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    inset: 0;
+    margin: auto;
+   
+    opacity: 0;
+    transition: transform 1000ms 150ms, opacity 150ms;
+}
+
+.searchbutton:active::before{
+    transform: scale(20);
+    opacity: 1;
+    transition: transform 1000ms opacity 500ms;
+}
+
+.searchbutton:has(:first-child:active)::before{
+    margin-left: 0;
+}
+
+.searchbutton:has(:last-child:active)::before{
+    margin-right: 0;
+}
+
+.searchbutton:has(:first-child:active)::before,
+    .searchbutton:has(:last-child:active)::before{
+transition: transform 250ms, opacity 250ms;
+    }
+
+
+    .scroller > ::-webkit-scrollbar {
+        display: none;
+    }
